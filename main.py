@@ -10,10 +10,11 @@ from forms import CreatePostForm, RegisterForm, Login, CommentForm
 from flask_gravatar import Gravatar
 from functools import wraps
 from flask import abort
-from sqlalchemy.orm import relationship
+import os
+
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ["APP_CONFIG"]
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app,
